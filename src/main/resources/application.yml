@@ -1,7 +1,6 @@
 server:
     port: 8080
 
-#��Ϣ����
 spring:
     rabbitmq:
         host: 192.1.1.101
@@ -9,3 +8,17 @@ spring:
         virtual-host: /dev
         password: password
         username: admin
+        #开启消息二次确认,生产者到broker的交换机
+        publisher-confirm-type: correlated
+
+
+        #开启消息二次确认，交换机到队列的可靠性投递
+        publisher-returns: true
+        #为true,则交换机处理消息到路由失败，则会返回给生产者
+        template:
+            mandatory: true
+
+        #消息手工确认ACK
+        listener:
+            simple:
+                acknowledge-mode: manual
