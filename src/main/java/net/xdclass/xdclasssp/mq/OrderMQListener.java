@@ -29,7 +29,7 @@ public class OrderMQListener {
         //告诉broker，消息拒绝确认
         //channel.basicNack(msgTag,false,true);
 
-        //channel.basicReject(msgTag,true);
+//        channel.basicReject(msgTag,true);
 
 
     }
